@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title id="title">login</title>
+    <link href="./login_files/ucas.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript">
+      function change_user_type() {
+        if (document.getElementById("selector").value == "guest") {
+          document.getElementById("submit_form").noValidate = true;
+        } else {
+          document.getElementById("submit_form").noValidate = false;
+        }
+      }
+    </script>
+  </head>
+  <body class="no-margin center">
+    <div class="body-cell">
+      <div class="box center" style="margin: 0 auto !important">
+        <div class="card">
+          <div id="header">
+            <h1 class="header-logo">
+              <img id="header-img" src="./login_files/book_system_logo.png" />
+            </h1>
+            <h1 class="header-des">
+              <img id="des-img" src="./login_files/des-en.svg" />
+            </h1>
+          </div>
+
+          <form
+            id="submit_form"
+            class="loginForm form-style"
+            style="height: 210px"
+            method="post"
+            action="./login.php"
+            accept-charset="UTF-8"
+          >
+            <!-- 账户 -->
+            <div class="group" title="请输入用户名">
+              <input
+                id="username"
+                class="input-box"
+                name="username"
+                type="text"
+                size="30"
+                placeholder="请输入用户名"
+                value=""
+                onfocus="this.placeholder=&#39;初次登陆请点击“找回密码”或以访客身份登录&#39;"
+                onblur="this.placeholder=&#39;请输入用户名&#39;"
+                required=""
+              />
+              <span class="bar"></span>
+            </div>
+
+            <!-- 密码 -->
+            <div
+              class="group"
+              id="pd"
+              title="初次登录或忘记密码时，请点击“找回密码”"
+            >
+              <input
+                type="password"
+                id="password"
+                class="input-box"
+                name="password"
+                size="30"
+                value=""
+                placeholder="初次登录或忘记密码时，请点击“找回密码”"
+                onfocus="this.placeholder=&#39;&#39;"
+                onblur="this.placeholder=&#39;初次登录或忘记密码时，请点击“找回密码”&#39;"
+                mark="password"
+                required=""
+              />
+              <span class="bar"></span>
+            </div>
+
+            <div class="bottom-box">
+              <select
+                id="selector"
+                title="locale"
+                name="selector"
+                class="bottom-box-selector"
+                onchange="change_user_type();"
+                style="
+                  height: 20px;
+                  line-height: 20px;
+                  padding: 0px 0;
+                  font-size: 10px;
+                "
+              >
+                <option value="ordinary_user" selected="selected">
+                  普通用户
+                </option>
+                <option value="admin">管理员</option>
+                <option value="guest">访客</option>
+              </select>
+
+              <a
+                id="findPassword"
+                href="https://passport.ustc.edu.cn/login?service=https%3A%2F%2Fjw.ustc.edu.cn%2Fucas-sso%2Flogin#"
+                onclick="goFindPassword();"
+                class="bottom-box-button-area"
+                >找回/修改密码</a
+              >
+              <button
+                id="login"
+                type="submit"
+                class="btn ripple bottom-box-button-area-1"
+              >
+                登录
+              </button>
+            </div>
+          </form>
+
+          <!--display the contacts & copyright in footer-->
+          <div id="footer" class="footer">
+            <div></div>
+
+            <span id="作者姓名" class="inline-block">作者姓名：吴立凡</span>
+            <br />
+            <span id="copyright" class="inline-block"
+              >中国科学技术大学 · 数据库大作业</span
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <style>
+      .btn-notice {
+        position: relative;
+        display: inline-block;
+        width: 12%;
+        min-width: 88px;
+        height: 36px;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        padding: 0 16px;
+        margin: 0;
+        overflow: hidden;
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 36px;
+        text-align: center;
+        text-decoration: none;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        white-space: nowrap;
+        vertical-align: middle;
+        -ms-touch-action: manipulation;
+        touch-action: manipulation;
+        cursor: pointer;
+        zoom: 1;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        border: none;
+        outline: 0;
+        -webkit-transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+          -webkit-box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1);
+        transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+          -webkit-box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1);
+        transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+          box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1);
+        transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+          box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1),
+          -webkit-box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1);
+        will-change: box-shadow;
+        -webkit-user-drag: none;
+        background-color: rgb(3, 80, 160);
+        color: white;
+      }
+      .btn-notice:hover {
+        color: white;
+        background-color: rgba(3, 80, 160, 0.8);
+      }
+      .btn-notice:active {
+        color: white;
+        background-color: rgb(40, 80, 160);
+      }
+    </style>
+  </body>
+</html>
